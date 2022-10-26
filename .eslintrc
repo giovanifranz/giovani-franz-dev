@@ -1,3 +1,6 @@
 {
-  "extends": ["eslint:recommended", "next"]
+  "extends": ["eslint:recommended", "next", "plugin:tailwindcss/recommended"],
+  "rules": {
+    "import/no-anonymous-default-export": "off"
+  }
 }

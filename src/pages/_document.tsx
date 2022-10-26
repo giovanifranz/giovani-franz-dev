@@ -3,7 +3,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document';
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html className="scroll-smooth">
+      <Html lang="pt-BR" className="scroll-smooth antialiased">
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -17,7 +17,7 @@ export default class MyDocument extends Document {
             content="Um desenvolvedor front-end com experiência em desenvolvimento de software especializado em React e NodeJS. Tenho experiência em front-end e back-end."
           />
         </Head>
-        <body>
+        <body className="overflow-x-hidden text-white bg-black">
           <Main />
           <NextScript />
         </body>

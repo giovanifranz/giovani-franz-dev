@@ -1,13 +1,13 @@
 import { useWindowSize } from 'react-use';
 import dynamic from 'next/dynamic';
-import { Default as Logo } from '../../atoms/Logo';
+import { Default as Logo } from '../Logo';
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 
 const Dropdown = dynamic(() => import('./Dropdown'));
 const Navigation = dynamic(() => import('./Navigation'));
 
-export default function Header() {
+export function Header() {
   const { width } = useWindowSize();
   const [menu, setMenu] = useState(<Dropdown />);
 
