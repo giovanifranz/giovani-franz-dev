@@ -2,10 +2,7 @@ import Link from 'next/link';
 
 export function About() {
   return (
-    <div
-      id="sobre"
-      className="font-light text-sm md:text-base md:font-normal max-w-[600px]"
-    >
+    <div className="font-light text-sm md:text-base md:font-normal max-w-[600px]">
       <h2 className="font-medium text-lg md:text-2xl">
         Eu sou<span className="text-red">...</span>
       </h2>
