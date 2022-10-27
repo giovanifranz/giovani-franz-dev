@@ -25,18 +25,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       },
     });
 
-    await new Promise((resolve, reject) => {
-      transporter.verify(function (error, success) {
-        if (error) {
-          console.error(error);
-          reject(error);
-        } else {
-          console.log('Server is ready to take our messages');
-          resolve(success);
-        }
-      });
-    });
-
     const mailData = {
       to: 'contato@giovanifranz.dev',
       from: 'contato@giovanifranz.dev',

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "analyzer": "ANALYZE=true next build",
     "start": "next start",
     "lint": "eslint src/**/*.{ts,tsx} --max-warnings=0 --fix",
     "format": "prettier --write src/**/*.{ts,tsx}",
