@@ -1,5 +1,4 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import Link from 'next/link';
 import Image from 'next/image';
 
 type Props = {
@@ -10,7 +9,7 @@ type Props = {
 function MenuItem({ text, href }: Props) {
   return (
     <DropdownMenu.Item className="text-2xl">
-      <Link href={href}>{text}</Link>
+      <a href={href}>{text}</a>
     </DropdownMenu.Item>
   );
 }
