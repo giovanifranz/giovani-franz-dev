@@ -1,13 +1,12 @@
 import Link from 'next/link';
+import { Subtitle, Text } from './';
 
 export function About() {
   return (
     <div className="font-light text-sm md:text-base md:font-normal max-w-[600px]">
-      <h2 className="font-medium text-lg md:text-2xl">
-        Eu sou<span className="text-red">...</span>
-      </h2>
+      <Subtitle text="Eu sou" />
       <br />
-      <p>
+      <Text>
         Um <span className="text-red">desenvolvedor front-end</span> com 1 ano
         de experiência em desenvolvimento de softwares e ferramentas de
         desenvolvimento.
@@ -42,7 +41,7 @@ export function About() {
           Highlander Tech
         </Link>
         .
-      </p>
+      </Text>
     </div>
   );
 }

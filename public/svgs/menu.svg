@@ -1,0 +1,11 @@
+ <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="56"
+          height="48"
+          fill="none"
+          viewBox="0 0 56 48"
+        >
+          <path fill="#FAFAFA" d="M4 4H52V12H4z" />
+          <path fill="#FAFAFA" d="M4 20H52V28H4z" />
+          <path fill="#FAFAFA" d="M4 36H52V44H4z" />
+        </svg>

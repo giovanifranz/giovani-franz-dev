@@ -60,7 +60,7 @@ export function Form() {
   );
 
   return (
-    <form onSubmit={handleSubmit(sendEmail)} className="w-96 mt-4">
+    <form onSubmit={handleSubmit(sendEmail)} className="w-full max-w-sm mt-4">
       <ToastContainer
         className="z-50"
         position="top-right"
@@ -105,7 +105,9 @@ export function Form() {
           Mensagem
         </label>
       </div>
-      <button type="submit">Enviar</button>
+      <button className="bg-red py-3 px-9 text-xl font-medium" type="submit">
+        Enviar
+      </button>
     </form>
   );
 }

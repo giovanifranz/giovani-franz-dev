@@ -1,6 +1,6 @@
 import { useWindowSize } from 'react-use';
 import dynamic from 'next/dynamic';
-import { Default as Logo } from '../Logo';
+import { Logo } from '../Logo';
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 

@@ -1,5 +1,4 @@
 import { Card } from './Card';
-
 import {
   SiNestjs,
   SiJavascript,
@@ -10,13 +9,12 @@ import {
   SiVite,
   SiTailwindcss,
 } from 'react-icons/si';
+import { Subtitle } from '../Subtitle';
 
 export function Tools() {
   return (
     <div className="text-sm font-light max-w-[600px] md:text-base md:font-normal">
-      <h2 className="text-lg font-medium md:text-2xl">
-        Eu utilizo<span className="text-red">...</span>
-      </h2>
+      <Subtitle text="Eu utilizo" />
       <br />
       <div className="flex flex-row flex-wrap gap-10">
         <Card
