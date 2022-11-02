@@ -23,7 +23,7 @@ export function Header() {
   const Menu = () => menu;
 
   return (
-    <header className="bg-black">
+    <header className="bg-black top-0 fixed inset-x-0 z-50">
       <div className="flex items-center justify-between px-10 mx-auto max-w-[1920px] py-9">
         <Link href="/">
           <Logo />
