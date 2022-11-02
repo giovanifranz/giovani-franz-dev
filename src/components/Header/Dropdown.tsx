@@ -1,18 +1,19 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import Image from 'next/image';
-import { Slot } from '@radix-ui/react-slot';
-import type { AnchorHTMLAttributes } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Props = {
-  asChild?: boolean;
-} & AnchorHTMLAttributes<HTMLAnchorElement>;
+  text: string;
+  href: string;
+  scroll?: boolean;
+};
 
-function MenuItem({ asChild, ...props }: Props) {
-  const Component = asChild ? Slot : 'a';
+function MenuItem({ text, href, scroll = false }: Props) {
   return (
-    <DropdownMenu.Item className="text-2xl">
-      <Component {...props} />
+    <DropdownMenu.Item>
+      <Link scroll={scroll} href={href}>
+        {text}
+      </Link>
     </DropdownMenu.Item>
   );
 }
@@ -25,10 +26,8 @@ export default function Dropdown() {
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content className="flex flex-col w-screen px-10 py-4 mt-5 font-medium bg-black gap-4 font-display text-white">
-          <MenuItem asChild>
-            <Link href="/">Home</Link>
-          </MenuItem>
-          <MenuItem href="#sobre">Sobre</MenuItem>
+          <MenuItem scroll href="/" text="Home" />
+          <MenuItem href="#sobre" text="Sobre" />
           {/*<MenuItem>
             <Link href="#portfolio">Portfólio</Link>
           </MenuItem>
