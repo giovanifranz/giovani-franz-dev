@@ -7,7 +7,7 @@ export function About() {
       <Subtitle text="Eu sou" />
       <br />
       <Text>
-        Um <span className="text-red">desenvolvedor front-end</span> com 1 ano
+        Um <span className="text-red">desenvolvedor full-stack</span> com 1 ano
         de experiência em desenvolvimento de softwares e ferramentas de
         desenvolvimento.
         <br />
@@ -21,7 +21,7 @@ export function About() {
         <br />
         <br />
         Hoje <span className="text-red">
-          frontend software engineer
+          full-stack software engineer
         </span> at{' '}
         <Link
           className="hover:underline text-red"

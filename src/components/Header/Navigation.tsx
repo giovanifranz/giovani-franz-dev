@@ -1,4 +1,9 @@
-import Link from 'next/link';
+import NextLink, { LinkProps } from 'next/link';
+import type { PropsWithChildren } from 'react';
+
+function Link(props: PropsWithChildren<LinkProps>) {
+  return <NextLink className="hover:underline text-xl" {...props} />;
+}
 
 export default function Navigation() {
   return (

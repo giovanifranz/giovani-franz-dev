@@ -105,7 +105,10 @@ export function Form() {
           Mensagem
         </label>
       </div>
-      <button className="bg-red py-3 px-9 text-xl font-medium" type="submit">
+      <button
+        className="bg-red py-3 px-9 text-xl font-medium hover:opacity-80"
+        type="submit"
+      >
         Enviar
       </button>
     </form>
