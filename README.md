@@ -76,13 +76,13 @@
 
 <div style="display: inline_block">
  
-<a href="https://www.highlandertech.com.br" target="_blank"><h2>Highlander Tech</h2></a>
+<a href="https://www.highlandertech.com.br" target="_blank">Highlander Tech</a>
 
-<a href="https://www.kyra.com.br" target="_blank"><h2>KYRA PESQUISA | Verdades Humanas para Negócios de Verdade</h2><img src="https://www.kyra.com.br/media-banner.png" width="300" height="155"></a>
+<a href="https://www.kyra.com.br" target="_blank">Kyra Pesquisa | Verdades Humanas para Negócios de Verdade</a>
 
-<a href="https://www.iagopaz.com.br" target="_blank"><h2>Portifólio - Designer Iago Centenaro Paz</h2></a>  
+<a href="https://www.iagopaz.com.br" target="_blank">Portifólio - Designer Iago Centenaro Paz</a>  
 
-<a href="https://oriental.highlandertech.com.br" target="_blank"><h2>Portifólio - Oriental Wing Chun</h2><img src="https://raw.githubusercontent.com/giovanifranz/Portfolio-OrientalWingChun/main/src/assets/logo-owc.png" width="230" height="280"></a>
+<a href="https://oriental.highlandertech.com.br" target="_blank">Portifólio - Oriental Wing Chun</a>
 
 <!--
 **maykbrito/maykbrito** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
