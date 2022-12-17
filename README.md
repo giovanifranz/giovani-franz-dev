@@ -80,9 +80,9 @@
 
 <a href="https://www.kyra.com.br" target="_blank">Kyra Pesquisa | Verdades Humanas para Negócios de Verdade</a>
 
-<a href="https://www.iagopaz.com.br" target="_blank">Portifólio - Designer Iago Centenaro Paz</a>  
+<a href="https://www.iagopaz.com.br" target="_blank">Portfólio - Designer Iago Centenaro Paz</a>  
 
-<a href="https://oriental.highlandertech.com.br" target="_blank">Portifólio - Oriental Wing Chun</a>
+<a href="https://oriental.highlandertech.com.br" target="_blank">Portfólio - Oriental Wing Chun</a>
 
 <!--
 **maykbrito/maykbrito** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
