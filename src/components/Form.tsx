@@ -35,8 +35,14 @@ const emailFormSchema = z.object({
 type FormValues = z.infer<typeof emailFormSchema>
 
 export function Form() {
-  const toastId = useId()
-  const { register, handleSubmit, reset } = useForm<FormValues>({
+  const toastLoadingId = useId()
+  const toastErrorId = useId()
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({
     defaultValues: {
       name: '',
       email: '',
@@ -51,7 +57,7 @@ export function Form() {
         toast('E-mail já está sendo enviado!', {
           ...TOAST_CONFIG,
           autoClose: 12000,
-          toastId,
+          toastId: toastLoadingId,
           type: toast.TYPE.INFO,
         })
 
@@ -64,29 +70,47 @@ export function Form() {
       })
 
       if (response.status === 200) {
-        toast.update(toastId, {
+        toast.update(toastLoadingId, {
           ...TOAST_CONFIG,
           render: 'E-mail enviado com Sucesso!',
           type: toast.TYPE.SUCCESS,
           autoClose: 2500,
-          toastId,
         })
         reset()
       }
 
       if (response.status === 500) {
-        toast.update(toastId, {
+        toast.update(toastLoadingId, {
           ...TOAST_CONFIG,
           render: 'Erro ao enviar e-mail!',
           type: toast.TYPE.ERROR,
           autoClose: 2500,
-          toastId,
         })
       }
     },
 
-    [reset, toastId],
+    [reset, toastLoadingId],
   )
+
+  const ValidateForm = useCallback(() => {
+    const errorToast = (message?: string) =>
+      toast(message, {
+        ...TOAST_CONFIG,
+        autoClose: 1500,
+        type: toast.TYPE.WARNING,
+        toastId: toastErrorId,
+      })
+
+    if (errors.name) {
+      errorToast(errors.name.message)
+    }
+    if (errors.email) {
+      errorToast(errors.email.message)
+    }
+    if (errors.message) {
+      errorToast(errors.message.message)
+    }
+  }, [errors.email, errors.message, errors.name, toastErrorId])
 
   return (
     <article className="w-11/12 max-w-[600px] md:w-1/2">
@@ -152,6 +176,8 @@ export function Form() {
           </label>
         </div>
         <button
+          disabled={isSubmitting}
+          onClick={ValidateForm}
           className="bg-blue py-3 px-9 text-xl font-medium hover:opacity-80"
           type="submit"
         >
