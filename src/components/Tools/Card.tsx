@@ -1,27 +1,27 @@
-import type { IconType } from 'react-icons';
+import type { IconType } from 'react-icons'
 
 type Props = {
-  Icon: IconType;
-  badgeColor: `#${string}`;
-  iconColor: `#${string}`;
-  tool: string;
-};
+  Icon: IconType
+  badgeColor: `#${string}`
+  iconColor: `#${string}`
+  tool: string
+}
 
 function Card({ Icon, tool, badgeColor, iconColor }: Props) {
   return (
-    <div className="flex flex-col items-center gap-2 w-20">
+    <div className="flex w-20 flex-col items-center gap-2">
       <div
         style={{ backgroundColor: badgeColor }}
         className={
-          'rounded-full w-[55px] h-[55px] flex justify-center items-center'
+          'flex h-[55px] w-[55px] items-center justify-center rounded-full'
         }
       >
-        <Icon size={32} style={{ color: iconColor }} />
+        <Icon size={32} style={{ color: iconColor }} title={tool} />
       </div>
       <span>{tool}</span>
     </div>
-  );
+  )
 }
 
-export { Card };
-export type { Props as CardProps };
+export { Card }
+export type { Props as CardProps }

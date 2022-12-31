@@ -1,10 +1,12 @@
-import Link from 'next/link';
-import { Subtitle, Text } from './';
+import Link from 'next/link'
+import { Subtitle, Text } from './'
 
 export function About() {
   return (
-    <div className="font-light text-sm md:text-base md:font-normal max-w-[600px]">
-      <Subtitle text="Eu sou" />
+    <article className="w-11/12 max-w-[600px] text-sm font-light md:w-1/2 md:text-base md:font-normal">
+      <header>
+        <Subtitle text="Eu sou" />
+      </header>
       <br />
       <Text>
         Um <span className="text-red">desenvolvedor full-stack</span> com 1 ano
@@ -24,8 +26,9 @@ export function About() {
           full-stack software engineer
         </span> at{' '}
         <Link
-          className="hover:underline text-red"
+          className="text-blue hover:underline"
           href="https://agi.com.br"
+          aria-label="Visite o site Agi"
           target="_blank"
           rel="noreferrer"
         >
@@ -33,8 +36,9 @@ export function About() {
         </Link>{' '}
         e{' '}
         <Link
-          className="hover:underline text-red"
+          className="text-blue hover:underline"
           href="https://www.highlandertech.com.br"
+          aria-label="Visite o site Highlander Tech"
           target="_blank"
           rel="noreferrer"
         >
@@ -42,6 +46,6 @@ export function About() {
         </Link>
         .
       </Text>
-    </div>
-  );
+    </article>
+  )
 }

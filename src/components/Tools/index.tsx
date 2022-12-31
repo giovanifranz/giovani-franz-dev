@@ -1,4 +1,4 @@
-import { Card } from './Card';
+import { Card } from './Card'
 import {
   SiNestjs,
   SiJavascript,
@@ -8,15 +8,17 @@ import {
   SiNodedotjs,
   SiVite,
   SiTailwindcss,
-} from 'react-icons/si';
-import { Subtitle } from '../Subtitle';
+} from 'react-icons/si'
+import { Subtitle } from '../Subtitle'
 
 export function Tools() {
   return (
-    <div className="text-sm font-light max-w-[600px] md:text-base md:font-normal">
-      <Subtitle text="Eu utilizo" />
+    <article className="w-full max-w-[600px] text-sm font-light md:w-1/2 md:text-base md:font-normal">
+      <header>
+        <Subtitle text="Eu utilizo" />
+      </header>
       <br />
-      <div className="flex flex-row flex-wrap gap-10">
+      <div className="flex flex-row flex-wrap gap-8">
         <Card
           Icon={SiJavascript}
           badgeColor="#323330"
@@ -66,6 +68,6 @@ export function Tools() {
           tool="NestJS"
         />
       </div>
-    </div>
-  );
+    </article>
+  )
 }

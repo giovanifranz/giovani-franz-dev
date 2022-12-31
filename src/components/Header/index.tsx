@@ -1,35 +1,35 @@
-import { useWindowSize } from 'react-use';
-import dynamic from 'next/dynamic';
-import { Logo } from '../Logo';
-import Link from 'next/link';
-import { useCallback, useEffect, useState } from 'react';
+import { useWindowSize } from 'react-use'
+import dynamic from 'next/dynamic'
+import { Logo } from '../Logo'
+import Link from 'next/link'
+import { useCallback, useEffect, useState } from 'react'
 
-const Dropdown = dynamic(() => import('./Dropdown'));
-const Navigation = dynamic(() => import('./Navigation'));
+const Dropdown = dynamic(() => import('./Dropdown'))
+const Navigation = dynamic(() => import('./Navigation'))
 
 export function Header() {
-  const { width } = useWindowSize();
-  const [menu, setMenu] = useState(<Dropdown />);
+  const { width } = useWindowSize()
+  const [menu, setMenu] = useState(<Dropdown />)
 
   const MenuResize = useCallback(() => {
-    if (width < 660) setMenu(<Dropdown />);
-    else setMenu(<Navigation />);
-  }, [width]);
+    if (width < 660) setMenu(<Dropdown />)
+    else setMenu(<Navigation />)
+  }, [width])
 
   useEffect(() => {
-    MenuResize();
-  }, [MenuResize]);
+    MenuResize()
+  }, [MenuResize])
 
-  const Menu = () => menu;
+  const Menu = () => menu
 
   return (
-    <header className="bg-black top-0 fixed inset-x-0 z-50">
-      <div className="flex items-center justify-between px-10 mx-auto max-w-[1920px] py-9">
+    <header className="fixed inset-x-0 top-0 z-50 bg-black">
+      <div className="mx-auto flex max-w-[1920px] items-center justify-between px-10 py-9">
         <Link href="/">
           <Logo />
         </Link>
         <Menu />
       </div>
     </header>
-  );
+  )
 }

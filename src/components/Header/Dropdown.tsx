@@ -1,12 +1,12 @@
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import Link from 'next/link';
-import Image from 'next/image';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import Link from 'next/link'
+import Image from 'next/image'
 
 type Props = {
-  text: string;
-  href: string;
-  scroll?: boolean;
-};
+  text: string
+  href: string
+  scroll?: boolean
+}
 
 function MenuItem({ text, href, scroll = false }: Props) {
   return (
@@ -15,7 +15,7 @@ function MenuItem({ text, href, scroll = false }: Props) {
         {text}
       </Link>
     </DropdownMenu.Item>
-  );
+  )
 }
 
 export default function Dropdown() {
@@ -25,17 +25,17 @@ export default function Dropdown() {
         <Image src="/svgs/menu.svg" alt="menu" width={56} height={48} />
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className="flex flex-col w-screen px-10 py-4 mt-5 font-medium bg-black gap-4 font-display text-white">
+        <DropdownMenu.Content className="mt-5 flex w-screen flex-col gap-4 bg-black px-10 py-4 font-display font-medium text-white">
           <MenuItem scroll href="/" text="Home" />
           <MenuItem href="#sobre" text="Sobre" />
-          {/*<MenuItem>
+          {/* <MenuItem>
             <Link href="#portfolio">Portfólio</Link>
           </MenuItem>
           <MenuItem>
             <Link href="#Contato">Contato</Link>
-          </MenuItem>*/}
+          </MenuItem> */}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
-  );
+  )
 }

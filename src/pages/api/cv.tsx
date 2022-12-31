@@ -1,10 +1,10 @@
-import { ImageResponse } from '@vercel/og';
+import { ImageResponse } from '@vercel/og'
 
 export const config = {
   runtime: 'experimental-edge',
-};
+}
 
-export default function () {
+export default function CurriculumVitae() {
   return new ImageResponse(
     (
       <div
@@ -26,5 +26,5 @@ export default function () {
       width: 1200,
       height: 600,
     },
-  );
+  )
 }
