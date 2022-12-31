@@ -36,17 +36,13 @@ export default async function SendEmail(
       html: `E-mail: ${email} <br> Mensagem: ${message}`,
     }
 
-    await new Promise((resolve, reject) => {
-      transporter.sendMail(mailData, (err, info) => {
-        if (err) {
-          console.error(err)
-          reject(err)
-        } else {
-          console.log(info)
-          res.status(200).end()
-          resolve(info)
-        }
-      })
-    })
+    try {
+      const result = await transporter.sendMail(mailData)
+      res.status(200).json(result)
+      return result
+    } catch (err) {
+      console.error(err)
+      res.status(500).end()
+    }
   }
 }

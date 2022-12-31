@@ -1,18 +1,13 @@
 import { useForm } from 'react-hook-form'
 import type { ToastOptions } from 'react-toastify'
 import { toast, ToastContainer } from 'react-toastify'
-import { useCallback } from 'react'
+import { useCallback, useId } from 'react'
 import { Subtitle } from './Subtitle'
-
-const regex = new RegExp(
-  '^(([^<>()[\\]\\\\.,;:\\s@\\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\\"]+)*)|' +
-    '(\\".+\\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])' +
-    '|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$',
-)
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const TOAST_CONFIG: ToastOptions = {
   position: 'top-right',
-  autoClose: 1500,
   hideProgressBar: false,
   closeOnClick: true,
   pauseOnHover: false,
@@ -20,44 +15,78 @@ const TOAST_CONFIG: ToastOptions = {
   progress: undefined,
 }
 
-type FormValues = {
-  name: string
-  email: string
-  message: string
-}
+const emailFormSchema = z.object({
+  name: z
+    .string()
+    .min(3, { message: 'O nome requer no mínimo 3 carácteres' })
+    .max(15, { message: 'O nome requer no máximo 15 carácteres' }),
 
-const INITIAL_STATE: FormValues = {
-  name: '',
-  email: '',
-  message: '',
-}
+  email: z
+    .string()
+    .min(3, { message: 'O e-mail requer no mínimo 3 carácteres' })
+    .max(30, { message: 'O e-mail requer no máximo 30 carácteres' })
+    .email()
+    .transform((email) => email.toLowerCase()),
+  message: z
+    .string()
+    .min(3, { message: 'A mensagem requer no mínimo 3 carácteres' })
+    .max(250, { message: 'A mensagem requer no máximo 250 carácteres' }),
+})
+
+type FormValues = z.infer<typeof emailFormSchema>
 
 export function Form() {
+  const toastId = useId()
   const { register, handleSubmit, reset } = useForm<FormValues>({
-    defaultValues: INITIAL_STATE,
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+    },
+    resolver: zodResolver(emailFormSchema),
   })
 
   const sendEmail = useCallback(
     async (values: FormValues) => {
-      const data = { ...values }
-      const response = await toast.promise(
-        fetch('/api/send-email', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        }),
-        {
-          pending: 'E-mail já está sendo enviado!',
-          success: 'E-mail enviado com Sucesso!',
-          error: 'Erro ao enviar e-mail!',
-        },
-        TOAST_CONFIG,
-      )
-      if (response.ok) {
+      const loading = () =>
+        toast('E-mail já está sendo enviado!', {
+          ...TOAST_CONFIG,
+          autoClose: 12000,
+          toastId,
+          type: toast.TYPE.INFO,
+        })
+
+      loading()
+
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      })
+
+      if (response.status === 200) {
+        toast.update(toastId, {
+          ...TOAST_CONFIG,
+          render: 'E-mail enviado com Sucesso!',
+          type: toast.TYPE.SUCCESS,
+          autoClose: 2500,
+          toastId,
+        })
         reset()
       }
+
+      if (response.status === 500) {
+        toast.update(toastId, {
+          ...TOAST_CONFIG,
+          render: 'Erro ao enviar e-mail!',
+          type: toast.TYPE.ERROR,
+          autoClose: 2500,
+          toastId,
+        })
+      }
     },
-    [reset],
+
+    [reset, toastId],
   )
 
   return (
@@ -85,7 +114,7 @@ export function Form() {
             id="name"
             className="peer block w-full appearance-none border-0 border-b-2 border-white bg-transparent py-2.5 px-0 text-sm text-white focus:border-red focus:outline-none"
             placeholder=" "
-            {...register('name', { required: true })}
+            {...register('name')}
           />
           <label
             htmlFor="name"
@@ -100,7 +129,7 @@ export function Form() {
             id="email"
             className="peer block w-full appearance-none border-0 border-b-2 border-white bg-transparent py-2.5 px-0 text-sm text-white focus:border-red focus:outline-none"
             placeholder=" "
-            {...register('email', { required: true, pattern: regex })}
+            {...register('email')}
           />
           <label
             htmlFor="email"
@@ -114,7 +143,7 @@ export function Form() {
             id="message"
             className="peer box-border block h-60 w-full resize appearance-none border-0 border-b-2 border-white bg-transparent py-2.5 px-0  text-sm text-white focus:border-red focus:outline-none "
             placeholder=" "
-            {...register('message', { required: true })}
+            {...register('message')}
           />
           <label
             htmlFor="message"
