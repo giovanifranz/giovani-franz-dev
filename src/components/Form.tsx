@@ -19,8 +19,7 @@ const emailFormSchema = z.object({
   name: z
     .string()
     .min(3, { message: 'O nome requer no mínimo 3 carácteres' })
-    .max(15, { message: 'O nome requer no máximo 15 carácteres' }),
-
+    .max(25, { message: 'O nome requer no máximo 25 carácteres' }),
   email: z
     .string()
     .min(3, { message: 'O e-mail requer no mínimo 3 carácteres' })
