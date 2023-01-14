@@ -5,13 +5,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="pt-BR" className="scroll-smooth antialiased" color="#202020">
         <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Poppins:wght@400;600;700&display=swap"
-            rel="stylesheet"
-            crossOrigin="anonymous"
-          />
           <link rel="canonical" href="https://www.giovanifranz.dev" />
           <meta
             name="description"
