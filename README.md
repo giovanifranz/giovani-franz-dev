@@ -80,8 +80,6 @@
 
 <a href="https://www.kyra.com.br" target="_blank">Kyra Pesquisa | Verdades Humanas para Negócios de Verdade</a>
 
-<a href="https://www.iagopaz.com.br" target="_blank">Portfólio - Designer Iago Centenaro Paz</a>  
-
 <a href="https://oriental.highlandertech.com.br" target="_blank">Portfólio - Oriental Wing Chun</a>
 
 <!--
