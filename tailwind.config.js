@@ -24,5 +24,9 @@ module.exports = {
       base: ['Poppins', 'sans-serif'],
       display: ['Montserrat Alternates', 'serif'],
     },
+    backgroundImage: {
+      desktop: "url('/bg-desktop.png')",
+      mobile: "url('/bg-mobile.png')",
+    },
   },
 }
