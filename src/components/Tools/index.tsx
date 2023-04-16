@@ -8,6 +8,8 @@ import {
   SiNodedotjs,
   SiVite,
   SiTailwindcss,
+  SiCloudflare,
+  SiDocker,
 } from 'react-icons/si'
 import { Subtitle } from '../Subtitle'
 
@@ -65,6 +67,18 @@ export function Tools() {
           badgeColor="#E0234E"
           iconColor="#fff"
           tool="NestJS"
+        />
+        <Card
+          Icon={SiDocker}
+          badgeColor="#2496ED"
+          iconColor="#fff"
+          tool="Docker"
+        />
+        <Card
+          Icon={SiCloudflare}
+          badgeColor="#F38020"
+          iconColor="#fff"
+          tool="Cloudflare"
         />
       </div>
     </article>
