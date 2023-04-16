@@ -117,11 +117,11 @@ export function Form() {
   }, [errors.email, errors.message, errors.name, toastErrorId])
 
   return (
-    <article className="w-11/12 max-w-[600px] md:w-1/2">
+    <article className="flex w-11/12 max-w-[600px] flex-col gap-4 md:w-1/2">
       <header>
         <Subtitle text="Se precisar de mim" />
       </header>
-      <br />
+
       <form onSubmit={handleSubmit(sendEmail)} className="md:w-80">
         <ToastContainer
           className="z-50"

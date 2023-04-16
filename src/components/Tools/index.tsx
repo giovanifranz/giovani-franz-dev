@@ -13,11 +13,10 @@ import { Subtitle } from '../Subtitle'
 
 export function Tools() {
   return (
-    <article className="w-full max-w-[600px] text-sm font-light md:w-1/2 md:text-base md:font-normal">
+    <article className="flex w-full max-w-[600px] flex-col gap-4 text-sm font-light md:w-1/2 md:text-base md:font-normal">
       <header>
         <Subtitle text="Eu utilizo" />
       </header>
-      <br />
       <div className="flex flex-row flex-wrap gap-8">
         <Card
           Icon={SiJavascript}
