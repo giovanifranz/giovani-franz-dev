@@ -23,7 +23,7 @@ const responsive = {
 export function Portfolio() {
   return (
     <div className="mx-auto grid max-w-[1320px] grid-cols-1 gap-4 lg:grid-cols-4 ">
-      <article className="col-span-1 mt-4 flex w-3/5 flex-col gap-4 p-4">
+      <article className="col-span-1 mt-4 flex w-3/5 flex-col gap-4 px-10 py-4 lg:px-4">
         <header>
           <Subtitle ellipsisColor="text-black" text="Eu já" />
         </header>
