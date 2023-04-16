@@ -48,6 +48,7 @@ export function Form() {
       email: '',
       message: '',
     },
+    mode: 'all',
     resolver: zodResolver(emailFormSchema),
   })
 
@@ -63,13 +64,17 @@ export function Form() {
 
       loading()
 
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
-      })
+      try {
+        const { status } = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(values),
+        })
 
-      if (response.status === 200) {
+        if (status !== 200) {
+          throw new Error('Erro ao enviar e-mail!')
+        }
+
         toast.update(toastLoadingId, {
           ...TOAST_CONFIG,
           render: 'E-mail enviado com Sucesso!',
@@ -77,9 +82,8 @@ export function Form() {
           autoClose: 2500,
         })
         reset()
-      }
-
-      if (response.status === 500) {
+      } catch (err) {
+        console.error(err)
         toast.update(toastLoadingId, {
           ...TOAST_CONFIG,
           render: 'Erro ao enviar e-mail!',
@@ -101,13 +105,13 @@ export function Form() {
         toastId: toastErrorId,
       })
 
-    if (errors.name) {
+    if (errors.name?.message) {
       errorToast(errors.name.message)
     }
-    if (errors.email) {
+    if (errors.email?.message) {
       errorToast(errors.email.message)
     }
-    if (errors.message) {
+    if (errors.message?.message) {
       errorToast(errors.message.message)
     }
   }, [errors.email, errors.message, errors.name, toastErrorId])
@@ -134,8 +138,7 @@ export function Form() {
         <div className="group relative z-0 mb-6 ">
           <input
             type="text"
-            id="name"
-            className="peer block w-full appearance-none border-0 border-b-2 border-white bg-transparent py-2.5 px-0 text-sm text-white focus:border-red focus:outline-none"
+            className="peer block w-full appearance-none border-0 border-b-2 border-white bg-transparent px-0 py-2.5 text-sm text-white focus:border-red focus:outline-none"
             placeholder=" "
             {...register('name')}
           />
@@ -149,8 +152,7 @@ export function Form() {
         <div className="group relative z-0 mb-6 w-full">
           <input
             type="email"
-            id="email"
-            className="peer block w-full appearance-none border-0 border-b-2 border-white bg-transparent py-2.5 px-0 text-sm text-white focus:border-red focus:outline-none"
+            className="peer block w-full appearance-none border-0 border-b-2 border-white bg-transparent px-0 py-2.5 text-sm text-white focus:border-red focus:outline-none"
             placeholder=" "
             {...register('email')}
           />
@@ -163,8 +165,7 @@ export function Form() {
         </div>
         <div className="group relative z-0 mb-6 w-full ">
           <textarea
-            id="message"
-            className="peer box-border block h-60 w-full resize appearance-none border-0 border-b-2 border-white bg-transparent py-2.5 px-0  text-sm text-white focus:border-red focus:outline-none "
+            className="peer box-border block h-60 w-full resize appearance-none border-0 border-b-2 border-white bg-transparent px-0 py-2.5  text-sm text-white focus:border-red focus:outline-none "
             placeholder=" "
             {...register('message')}
           />
@@ -178,7 +179,7 @@ export function Form() {
         <button
           disabled={isSubmitting}
           onClick={ValidateForm}
-          className="bg-blue py-3 px-9 text-xl font-medium hover:opacity-80"
+          className="bg-blue px-9 py-3 text-xl font-medium hover:opacity-80"
           type="submit"
         >
           Enviar
