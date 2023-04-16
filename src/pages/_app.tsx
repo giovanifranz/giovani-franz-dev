@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useEffect } from 'react'
 import { axeAccessibilityReporter } from '../utils/axeAccessibilityReporter'
 import Head from 'next/head'
+import 'react-multi-carousel/lib/styles.css'
 
 const montserratAlternates = MontserratAlternates({
   weight: ['500'],

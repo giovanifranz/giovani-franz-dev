@@ -9,6 +9,7 @@ import {
   Text,
   Footer,
   Container,
+  Portfolio,
 } from '../components'
 import { TiSocialLinkedinCircular } from 'react-icons/ti'
 import { AiOutlineGithub } from 'react-icons/ai'
@@ -26,7 +27,9 @@ export default function Home() {
           <About />
           <Tools />
         </Container>
-        <div className="h-20 w-full bg-red" />
+        <section id="portfolio" className="w-full bg-red">
+          <Portfolio />
+        </section>
         <Container id="contato">
           <Form />
           <article className="w-11/12 max-w-[600px] md:w-1/2">

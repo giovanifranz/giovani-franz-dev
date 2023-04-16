@@ -28,12 +28,8 @@ export default function Dropdown() {
         <DropdownMenu.Content className="mt-5 flex w-screen flex-col gap-4 bg-black px-10 py-4 font-display font-medium text-white">
           <MenuItem scroll href="/" text="Home" />
           <MenuItem href="#sobre" text="Sobre" />
-          {/* <MenuItem>
-            <Link href="#portfolio">Portfólio</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link href="#Contato">Contato</Link>
-          </MenuItem> */}
+          <MenuItem href="#portfolio" text="Portfólio" />
+          <MenuItem href="#contato" text="Contato" />
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>

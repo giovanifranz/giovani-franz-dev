@@ -14,8 +14,8 @@ export default function Navigation() {
         Home
       </Link>
       <Link href="#sobre">Sobre</Link>
-      {/* <Link href="#portfolio">Portfólio</Link>
-      <Link href="#Contato">Contato</Link> */}
+      <Link href="#portfolio">Portfólio</Link>
+      <Link href="#contato">Contato</Link>
     </nav>
   )
 }
