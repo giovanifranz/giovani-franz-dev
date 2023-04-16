@@ -68,7 +68,9 @@
 ## 👨‍💻 &nbsp;Projects
 
 <div style="display: inline_block">
- 
+
+<a href="https://www.giovanifranz.dev" target="_blank">Giovani Franz Dev</a>  
+  
 <a href="https://www.highlandertech.com.br" target="_blank">Highlander Tech</a>
 
 <a href="https://www.kyra.com.br" target="_blank">Kyra Pesquisa | Verdades Humanas para Negócios de Verdade</a>
