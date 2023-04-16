@@ -32,7 +32,7 @@ export function Portfolio() {
         <p>Veja alguns deles aqui:</p>
       </article>
       <Carousel
-        className="col-span-3 transition-all duration-500 ease-in-out [&>button]:bg-red"
+        className="col-span-3 transition-all duration-500 ease-in-out [&>button]:z-20 [&>button]:bg-red"
         responsive={responsive}
         ssr
         infinite
