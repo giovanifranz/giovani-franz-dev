@@ -6,6 +6,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   swcMinify: true,
+  experimental: {
+    runtime: 'edge',
+  },
   compiler: {
     removeConsole: process.env.NODE_ENV !== 'development',
   },

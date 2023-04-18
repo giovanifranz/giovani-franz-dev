@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
 type Email = {
@@ -7,43 +7,57 @@ type Email = {
   message: string
 }
 
-export default async function SendEmail(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
+export const config = {
+  runtime: 'edge',
+}
+
+export default async function SendEmail(req: NextRequest) {
   if (req.method === 'POST') {
-    const data: Email = req.body
-    const { name, email, message } = data
+    const contentType = req.headers.get('content-type') || ''
+    if (contentType.includes('application/json')) {
+      const data: Email = await req.json()
 
-    const transporter = nodemailer.createTransport({
-      port: 587,
-      host: 'smtp.umbler.com',
-      auth: {
-        user: 'contato@giovanifranz.dev',
-        pass: process.env.UMBLER_PASSWORD,
-      },
-      tls: {
-        rejectUnauthorized: true,
-        minVersion: 'TLSv1.2',
-      },
-    })
+      const { name, email, message } = data
 
-    const mailData = {
-      to: 'contato@giovanifranz.dev',
-      from: 'contato@giovanifranz.dev',
-      cc: 'giovanifranz151@gmail.com',
-      subject: `Nome: ${name}`,
-      html: `E-mail: ${email} <br> Mensagem: ${message}`,
+      const transporter = nodemailer.createTransport({
+        port: 587,
+        host: 'smtp.umbler.com',
+        auth: {
+          user: 'contato@giovanifranz.dev',
+          pass: process.env.UMBLER_PASSWORD,
+        },
+        tls: {
+          rejectUnauthorized: true,
+          minVersion: 'TLSv1.2',
+        },
+      })
+
+      const mailData = {
+        to: 'contato@giovanifranz.dev',
+        from: 'contato@giovanifranz.dev',
+        cc: 'giovanifranz151@gmail.com',
+        subject: `Nome: ${name}`,
+        html: `E-mail: ${email} <br> Mensagem: ${message}`,
+      }
+
+      try {
+        const result = await transporter.sendMail(mailData)
+        return NextResponse.json(result, {
+          status: 200,
+          statusText: 'E-mail enviado com sucesso',
+        })
+      } catch (err) {
+        console.error(err)
+        return NextResponse.json(null, {
+          status: 500,
+          statusText: 'Ocorreu um erro ao enviar o e-mail',
+        })
+      }
+    } else {
+      return NextResponse.json(null, {
+        status: 400,
+        statusText: 'Método não permitido',
+      })
     }
-
-    try {
-      const result = await transporter.sendMail(mailData)
-      res.status(200).json({ message: 'E-mail enviado com sucesso', result })
-    } catch (err) {
-      console.error(err)
-      res.status(500).json({ error: 'Ocorreu um erro ao enviar o e-mail' })
-    }
-  } else {
-    res.status(405).json({ error: 'Método não permitido' })
   }
 }

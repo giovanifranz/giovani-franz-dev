@@ -25,7 +25,7 @@ export default function Dropdown() {
         <Image src="/svgs/menu.svg" alt="menu" width={56} height={48} />
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className="mt-5 flex w-screen flex-col gap-4 bg-black px-10 py-4 font-display font-medium text-white">
+        <DropdownMenu.Content className="mt-5 flex w-screen flex-col gap-4 bg-black py-4 pl-10 font-display font-medium text-white">
           <MenuItem scroll href="/" text="Home" />
           <MenuItem href="#sobre" text="Sobre" />
           <MenuItem href="#portfolio" text="Portfólio" />

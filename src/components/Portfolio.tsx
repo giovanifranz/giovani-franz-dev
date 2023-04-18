@@ -1,5 +1,5 @@
 import { Subtitle } from './Subtitle'
-import Image from 'next/image'
+import { Image } from './Image'
 import Carousel from 'react-multi-carousel'
 
 const responsive = {
@@ -39,37 +39,12 @@ export function Portfolio() {
         autoPlay
         removeArrowOnDeviceType={['tablet', 'mobile']}
       >
-        <Image width={330} height={400} src="/assets/agi.png" alt="Agibank" />
-        <Image
-          width={330}
-          height={400}
-          src="/assets/scoremilk.png"
-          alt="Score Milk"
-        />
-        <Image
-          width={330}
-          height={400}
-          src="/assets/oriental.png"
-          alt="Oriental Wing Chun"
-        />
-        <Image
-          width={330}
-          height={400}
-          src="/assets/kyra.png"
-          alt="Kyra Pesquisa"
-        />
-        <Image
-          width={330}
-          height={400}
-          src="/assets/entremalhas.png"
-          alt="Entremalhas"
-        />
-        <Image
-          width={330}
-          height={400}
-          src="/assets/highlander.png"
-          alt="Highlander Tech"
-        />
+        <Image src="/assets/agi.png" alt="Agibank" />
+        <Image src="/assets/scoremilk.png" alt="Score Milk" />
+        <Image src="/assets/oriental.png" alt="Oriental Wing Chun" />
+        <Image src="/assets/kyra.png" alt="Kyra Pesquisa" />
+        <Image src="/assets/entremalhas.png" alt="Entremalhas" />
+        <Image src="/assets/highlander.png" alt="Highlander Tech" />
       </Carousel>
     </div>
   )
