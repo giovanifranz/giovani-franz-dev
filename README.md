@@ -2,7 +2,7 @@
 
 - 🔥 Software Engineer | ReactJs | NextJs | NodeJs | NestJs | Javascript | Typescript | Docker
 
-- 🔭 I’m currently working at [Agi](https://agibank.com.br/) and [Highander Tech](https://www.highlandertech.com.br/)
+- 🔭 I’m currently working at [Stone Co.](https://www.stone.com.br/) and [Highander Tech](https://www.highlandertech.com.br/)
 
 <br><br>
 
